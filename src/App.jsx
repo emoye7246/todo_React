@@ -3,7 +3,9 @@ import { Outlet } from 'react-router-dom'
 import { createContext } from 'react'
 import { Link } from 'react-router-dom'
 import { differenceInCalendarDays, differenceInDays, format } from 'date-fns'
-import { da } from 'date-fns/locale'
+import {  MyIcons } from './Myassets/MyIcons'
+import caveat from '/Users/elijahmoye/Desktop/todo/todo/src/assets/fonts/Caveat/static/Caveat-Regular.ttf'
+import caveatVariant from '/Users/elijahmoye/Desktop/todo/todo/src/assets/fonts/Caveat/Caveat-VariableFont_wght.ttf'
 
 export const TaskContent = createContext(null)
 
@@ -93,7 +95,7 @@ export const App = () => {
 
 
 
-  const Addtask = (title, Description, date) => {
+  const Addtask = (title, Description, date, location) => {
 
     if (title.trim() === "" || description.trim() === "" || date.trim() === "") return;
 
@@ -105,6 +107,7 @@ export const App = () => {
 
         const newTask = {id: crypto.randomUUID(), title: title, date: date}
         setUpcoming((prevTask) => [...prevTask, newTask])
+        
       }
       else if(difference <= 0){
 
@@ -113,8 +116,6 @@ export const App = () => {
 
       }
      
-
-
       setAddTask(false)
       setTitle('')
       setDescription('')
@@ -128,7 +129,7 @@ export const App = () => {
 
     if(title.trim() === "" || description.trim() === "") return
 
-    const newProject = {id: crypto.randomUUID(), title: title, description: description}
+    const newProject = {id: crypto.randomUUID(), title: title, description: description, tasks: [] || []}
     setMyprojects((prevProject) => [...prevProject, newProject])
 
     setAddProject(false)
@@ -156,50 +157,65 @@ export const App = () => {
   return (
     <>
 
-        <div className='flex flex-row min-h-screen max-w-screen'>
+        <div className='flex flex-row min-h-screen max-w-screen text-[24px] ' style={{fontFamily: 'Caveat'}}>
           
           <TaskContent.Provider value={{completed, due, upcoming, myTask, myProjects}}>
 
-          <div className='flex flex-col w-[25vw] h-screen border-2 border-black items-start justify-evenly p-20 bg-[#EBFCFC]'>
+          <div className='flex flex-col w-[25vw] min-h-full border-2 border-black items-start justify-evenly p-20 bg-[#EBFCFC] overflow-y-scroll'>
 
-                <div>
-                    <div>Dashboard</div>
-                    <hr />
+                <div className='flex flex-col h-full justify-evenly grow'>
+
+                    <div>
+                      <div className='font-[caveatVariant]'>Dashboard</div>
+                      <hr />
+                    </div>
 
                     <div className='flex flex-row'>
 
-                      <Link to='/'>
-                        <div>Icon</div>
+                      <Link to='/' className='flex flex-row w-full justify-between gap-x-10'>
+
                         <div>Home</div>
+                        <img src={MyIcons.Home} alt="homeIcon" className='h-[24px] w-[24px]'/>
+
                       </Link>
 
                     </div>
 
-                    <div className='flex flex-row'>
-                      <div>Icon</div>
+                    <div className='flex flex-row w-full justify-between gap-x-10'>
                       <div>Upcoming</div>
+                      <img src={MyIcons.Upcoming} alt="upcomingIcon" className='h-[24px] w-[24px]' />
                     </div>
 
-                    <div className='flex flex-row'>
-                      <div>Icon</div>
+                    <div className='flex flex-row w-full justify-between gap-x-10'>
+
                       <div>Completed</div>
+                      <img src={MyIcons.check} alt="checkIcon" className='h-[24px] w-[24px]' />
+
                     </div>
 
-
-                    <div className='flex flex-row'>
-                      <div>Icon</div>
+ 
+                    <div className='flex flex-row gap-x-10 w-full justify-between'>
                       <div>Due</div>
+                      <img src={MyIcons.alert} alt="alertIcon" className='h-[24px] w-[24px]' />
                     </div>
                 </div>
 
-                <div>
+                <div className='flex flex-col h-full justify-evenly'>
 
-                    <div>Task</div>
-                    <hr />
+                    <div className='flex flex-col'>
+
+                      <div className='flex flex-row w-full justify-between'>
+
+                        <div className='font-[caveatVariant]'>Tasks</div>
+                        <div>{`${myTask.length}`}</div>
+                      </div>
+                      <hr />
+
+                    </div>
                     
-                    <div className='flex flex-row'>
-                      <div>Icon</div>
-                      <button onClick={() => setAddTask(true)}>Add Task</button>
+                    <div className='flex flex-row gap-x-10  items-center'>
+                      <div>Add Task</div>
+                      <img src={MyIcons.add} alt='addIcon' onClick={() => setAddTask(true)} className='w-[8px] h-[8px]'/>
 
 
                     </div>
@@ -239,14 +255,22 @@ export const App = () => {
                 </div>
 
                 <div>
-                    <div>Projects</div>
-                    <hr />
+                    <div className='flex flex-col h-full justify-evenly'>
 
-                    <div className='flex flex-row'>
-                      <div>Icon</div>
-                      <button onClick={() => setAddProject(true)}>Add Project</button>
-
+                      <div className='flex flex-row w-full justify-between'>
+                        <div className='font-[caveatVariant]'>Projects</div>
+                        <div>{`${myProjects.length}`}</div>
+                      </div>
+                      <hr />
+                      
                     </div>
+
+                    <div className='flex flex-row gap-x-10  items-center mb-8'>
+                      <div>Add Project</div>
+                      <img src={MyIcons.add} alt='addIcon' onClick={() => setAddProject(true)} className='w-[8px] h-[8px]'/>
+                    </div>
+
+                    <div>See All</div>
 
                     {addProject && (
                             <div className="fixed inset-0 flex items-center justify-center backdrop-blur-xs">

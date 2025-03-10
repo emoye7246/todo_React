@@ -1,6 +1,8 @@
 import { useContext, useEffect } from "react"
 import { Link } from "react-router-dom"
 import { TaskContent } from "../App"
+import { MyIcons } from "../Myassets/MyIcons"
+import { format } from "date-fns"
 
 export const Homepage = () => {
 
@@ -19,13 +21,13 @@ export const Homepage = () => {
 
                 <div className="flex flex-row justify-evenly items-center border-b-2 ">
                     
-                    <div className="flex flex-row">   
-                        <div>Icon</div>
+                    <div className="flex flex-row gap-x-8">   
+                       <img src={MyIcons.Home} alt="homeIcon" className=" w-[24px] h-[24px]" />
                         <div>Home</div>
                     </div>
 
                     <div className="flex flex-row">   
-                        <div>March 9th 2025</div>
+                        <div>{`${format(new Date(), 'MMMM, do, yyyy')}`}</div>
                     </div>
                     
                 </div>
@@ -58,18 +60,22 @@ export const Homepage = () => {
                 <div className="flex flex-col justify-center text-center gap-y-8">
 
                     <h2>Your Tasks</h2>
+
+                    <div>You have {`${myTask.length}`} Tasks</div>
                     
 
                     <div className="grid grid-cols-2 grid-rows-1 content-center gap-x-10">
 
                     {myTask.slice(0, 2).map((task) => 
 
-                            <div className="max-w-[500px] min-h-[300px] border">
-                                    Hello
+                            <div className="max-w-[500px] min-h-[300px] border bg-purple-50">
+                                    
+                                    <div>{task.title}</div>
                             </div>
                         
                     )}
                     </div>
+
 
 
 
@@ -77,21 +83,27 @@ export const Homepage = () => {
 
                  <div className="flex flex-col justify-center text-center gap-y-8">
 
-                    <h2>Your Projects</h2>
-                    
+                        <h2>Your Projects</h2>
+                    <div>You have {`${myProjects.length}`} Projects</div>
+
+
 
                     <div className="grid grid-cols-2 grid-rows-1 content-center gap-x-10">
 
                     {myProjects.slice(0, 2).map((task) => 
 
-                            <div className="max-w-[500px] min-h-[300px] border">
-                                    Hello
+                            <div className="max-w-[500px] min-h-[300px] border bg-yellow-100">
+
+                                    <div>{task.title}</div>
+
+                                    <div>You have {task.tasks.length} task in this folder</div>
                             </div>
                         
                     )}
                     </div>
 
-                    <div>See All</div>
+
+
 
                 </div>
 
