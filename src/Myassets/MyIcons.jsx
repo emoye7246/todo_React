@@ -5,7 +5,9 @@ export const MyIcons = {
     Upcoming: 'src/assets/Icons/upcoming.png', 
     check: 'src/assets/Icons/check.png', 
     alert: 'src/assets/Icons/alert.png', 
-    add: 'src/assets/Icons/plus.png'
+    add: 'src/assets/Icons/plus.png',
+    task: 'src/assets/Icons/task.png',
+    project: 'src/assets/Icons/folder.png'
 }
 
 export const Myfonts = {

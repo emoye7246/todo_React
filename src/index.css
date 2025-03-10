@@ -5,3 +5,8 @@
     font-family: 'Caveat';
     src: url('/src/assets/fonts/Caveat/static/Caveat-Regular.ttf');
 }
+
+Link {
+
+    cursor: pointer;
+}

@@ -59,7 +59,7 @@ export const Homepage = () => {
 
                 <div className="flex flex-col justify-center text-center gap-y-8">
 
-                    <h2>Your Tasks</h2>
+                    <h2 className="text-3xl">Your Tasks</h2>
 
                     <div>You have {`${myTask.length}`} Tasks</div>
                     
@@ -81,7 +81,7 @@ export const Homepage = () => {
 
                  <div className="flex flex-col justify-center text-center gap-y-8">
 
-                        <h2>Your Projects</h2>
+                    <h2 className="text-3xl">Your Projects</h2>
                     <div>You have {`${myProjects.length}`} Projects</div>
 
                     <div className="grid grid-cols-2 grid-rows-1 content-center gap-x-10">

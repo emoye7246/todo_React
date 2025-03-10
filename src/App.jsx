@@ -153,7 +153,7 @@ export const App = () => {
 
         <div className='flex flex-row min-h-screen max-w-screen text-[24px] ' style={{fontFamily: 'Caveat'}}>
           
-          <TaskContent.Provider value={{title, description, descriptionInput, dateInput, titleInput, date, completed, due, upcoming, myTask, myProjects, addTask, addProject,  setAddTask, setTitleInput, setDescriptionInput, setDateInput, setTitle, setDescription, setDate, Addtask, setAddProject, AddProject, setCompleted}}>
+          <TaskContent.Provider value={{title, description, descriptionInput, dateInput, titleInput, date, completed, due, upcoming, myTask, myProjects, addTask, addProject,  setAddTask, setTitleInput, setDescriptionInput, setDateInput, setTitle, setDescription, setDate, Addtask, setAddProject, AddProject, setCompleted, setMyTasks, setUpcoming, setDue}}>
 
           <div className='flex flex-col w-[25vw] min-h-full border-2 border-black items-start justify-evenly p-20 bg-[#EBFCFC] overflow-y-scroll'>
                 <Dashboard />

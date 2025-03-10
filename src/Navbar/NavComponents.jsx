@@ -105,7 +105,7 @@ export const TaskComponents = () => {
                       )}
 
                       <Link to='tasks'>
-                        <button>See All</button>
+                        <div>See All</div>
                     </Link>
 
                 </div>
@@ -136,8 +136,10 @@ export const ProjectComponents = () => {
                     <div>Add Project</div>
                     <img src={MyIcons.add} alt='addIcon' onClick={() => setAddProject(true)} className='w-[8px] h-[8px]'/>
                 </div>
-
-                <div>See All</div>
+                
+                <Link to='projects'>
+                    <div>See All</div>
+                </Link>
 
                 {addProject && (
                         <div className="fixed inset-0 flex items-center justify-center backdrop-blur-xs">
