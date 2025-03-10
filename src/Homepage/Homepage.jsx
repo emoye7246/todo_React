@@ -77,16 +77,12 @@ export const Homepage = () => {
                     </div>
 
 
-
-
                 </div>
 
                  <div className="flex flex-col justify-center text-center gap-y-8">
 
                         <h2>Your Projects</h2>
                     <div>You have {`${myProjects.length}`} Projects</div>
-
-
 
                     <div className="grid grid-cols-2 grid-rows-1 content-center gap-x-10">
 
@@ -102,13 +98,7 @@ export const Homepage = () => {
                     )}
                     </div>
 
-
-
-
                 </div>
-
-                
-
 
             </div>
         </>
