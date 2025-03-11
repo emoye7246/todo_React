@@ -17,7 +17,7 @@ export const Homepage = () => {
     return (
 
         <>
-            <div className="flex flex-col h-full w-full justify-evenly p-20 gap-y-30 ">
+            <div className="flex flex-col h-full w-full justify-evenly p-20 gap-y-30 " id="fade-in">
 
                 <div className="flex flex-row justify-evenly items-center border-b-2 ">
                     
@@ -66,11 +66,23 @@ export const Homepage = () => {
 
                     <div className="grid grid-cols-2 grid-rows-1 content-center gap-x-10">
 
-                    {myTask.slice(0, 2).map((task) => 
+                    {myTask.slice(0, 2).map((task, i) => 
 
-                            <div className="max-w-[500px] min-h-[300px] border bg-purple-50">
+                            <div className="max-w-[500px] min-h-[300px]  bg-purple-50 rounded-[14px]" key={i}>
                                     
-                                    <div>{task.title}</div>
+                                    <div className="flex flex-col h-full items-start justify-evenly p-10">
+
+                                        <div>
+                                            <div>{task.title}</div>
+                                            <hr className="flex w-48" /> 
+                                        </div>
+
+                                        <div>{task.Description}</div>
+
+                                        <div>{`This task is due on: ${format(new Date(`${task.date}`), 'MMMM. do, yyyy')}`}</div>
+
+
+                                    </div>
                             </div>
                         
                     )}
@@ -86,13 +98,23 @@ export const Homepage = () => {
 
                     <div className="grid grid-cols-2 grid-rows-1 content-center gap-x-10">
 
-                    {myProjects.slice(0, 2).map((task) => 
+                    {myProjects.slice(0, 2).map((task, i) => 
 
-                            <div className="max-w-[500px] min-h-[300px] border bg-yellow-100">
+                            <div className="max-w-[500px] min-h-[300px] bg-yellow-100 rounded-[14px]" key={i}>
+                                    
+                                    <div className="flex flex-col h-full items-start justify-evenly p-10">
 
-                                    <div>{task.title}</div>
+                                        <div>
+                                            <div>{task.title}</div>
+                                            <hr className="flex w-48" /> 
+                                        </div>
 
-                                    <div>You have {task.tasks.length} task in this folder</div>
+                                        <div>{task.description}</div>
+
+                                        <div>{`You have ${task.tasks.length} tasks in this project`}</div>
+
+
+                                    </div>
                             </div>
                         
                     )}

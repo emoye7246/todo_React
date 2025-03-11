@@ -27,7 +27,7 @@ export const Tasks = () => {
     return (
 
         <>
-            <div className="flex flex-col h-full w-full justify-evenly p-10 gap-y-8">
+            <div className="flex flex-col h-full w-full justify-evenly p-10 gap-y-8" id="fade-in">
 
 
             <div className="flex flex-row justify-evenly items-center border-b-2 ">

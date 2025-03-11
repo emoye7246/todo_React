@@ -18,31 +18,43 @@ export const Dashboard = () => {
 
                 <div className='flex flex-row'>
 
-                    <Link to='/' className='flex flex-row w-full justify-between gap-x-10'>
+                    <Link to='/' className='flex flex-row w-full justify-between gap-x-10' id="link">
 
                     <div>Home</div>
                     <img src={MyIcons.Home} alt="homeIcon" className='h-[24px] w-[24px]'/>
 
+                    </Link> 
+
+                </div>
+
+                <div className='flex flex-row '>
+
+                    <Link to='upcoming' className='flex flex-row w-full justify-between gap-x-10' id="link">
+                        <div>Upcoming</div>
+                        <img src={MyIcons.Upcoming} alt="upcomingIcon" className='h-[24px] w-[24px]' />
                     </Link>
 
-                </div>
-
-                <div className='flex flex-row w-full justify-between gap-x-10'>
-                    <div>Upcoming</div>
-                    <img src={MyIcons.Upcoming} alt="upcomingIcon" className='h-[24px] w-[24px]' />
-                </div>
-
-                <div className='flex flex-row w-full justify-between gap-x-10'>
-
-                    <div>Completed</div>
-                    <img src={MyIcons.check} alt="checkIcon" className='h-[24px] w-[24px]' />
 
                 </div>
 
+                <div className='flex flex-row '>
+                    
+                    <Link to='completed' className='flex flex-row w-full justify-between gap-x-10' id="link">
+                        <div>Completed</div>
+                        <img src={MyIcons.check} alt="checkIcon" className='h-[24px] w-[24px]' />
+                    </Link>
 
-                <div className='flex flex-row gap-x-10 w-full justify-between'>
-                    <div>Due</div>
-                    <img src={MyIcons.alert} alt="alertIcon" className='h-[24px] w-[24px]' />
+
+                </div>
+
+
+                <div className='flex flex-row '>
+
+                    <Link to='due' className='flex flex-row w-full justify-between gap-x-10' id="link">
+                        <div>Due</div>
+                        <img src={MyIcons.alert} alt="alertIcon" className='h-[24px] w-[24px]' />
+                    </Link>
+
                 </div>
             </div>
         </>
@@ -70,16 +82,16 @@ export const TaskComponents = () => {
 
                     </div>
                     
-                    <div className='flex flex-row gap-x-10  items-center'>
+                    <div className='flex flex-row gap-x-10  items-center' onClick={() => setAddTask(true)} id="add">
                       <div>Add Task</div>
-                      <img src={MyIcons.add} alt='addIcon' onClick={() => setAddTask(true)} className='w-[8px] h-[8px]'/>
+                      <img src={MyIcons.add} alt='addIcon'  className='w-[8px] h-[8px]' id="add"/>
 
 
                     </div>
 
                       {addTask && (
 
-                            <div className="fixed inset-0 flex items-center justify-center backdrop-blur-xs">
+                            <div className="fixed inset-0 flex items-center justify-center backdrop-blur-xs" id="fade-in">
 
                             <div className="flex flex-col justify-evenly bg-[#FBE7C6] p-6 rounded shadow-lg w-[500px] h-fit gap-y-6">
 
@@ -98,13 +110,15 @@ export const TaskComponents = () => {
                                   setDescription(descriptionInput)
                                   setDate(dateInput)
                                   Addtask(title, description, date)
+                                  
+
                               }} 
                               className="mt-4 px-4 py-2 bg-red-500 text-white rounded">Close</button>
                             </div>
                             </div>
                       )}
 
-                      <Link to='tasks'>
+                      <Link to='tasks' id="link">
                         <div>See All</div>
                     </Link>
 
@@ -121,8 +135,8 @@ export const ProjectComponents = () => {
     return (
         
         <>
-            <div>
-                <div className='flex flex-col h-full justify-evenly'>
+            <div className='flex flex-col h-full justify-evenly'>
+                <div className="flex flex-col">
 
                     <div className='flex flex-row w-full justify-between'>
                     <div className='font-[caveatVariant]'>Projects</div>
@@ -132,17 +146,15 @@ export const ProjectComponents = () => {
                     
                 </div>
 
-                <div className='flex flex-row gap-x-10  items-center mb-8'>
+                <div className='flex flex-row gap-x-10  items-center' onClick={() => setAddProject(true)} id="add">
                     <div>Add Project</div>
-                    <img src={MyIcons.add} alt='addIcon' onClick={() => setAddProject(true)} className='w-[8px] h-[8px]'/>
+                    <img src={MyIcons.add} alt='addIcon' className='w-[8px] h-[8px]' id="add"/>
                 </div>
                 
-                <Link to='projects'>
-                    <div>See All</div>
-                </Link>
+ 
 
                 {addProject && (
-                        <div className="fixed inset-0 flex items-center justify-center backdrop-blur-xs">
+                        <div className="fixed inset-0 flex items-center justify-center backdrop-blur-xs" id="fade-in">
 
                         <div className="flex flex-col justify-evenly bg-[#FBE7C6] p-6 rounded shadow-lg w-[500px] h-fit gap-y-6">
 
@@ -163,6 +175,9 @@ export const ProjectComponents = () => {
                         </div>
 
                     )}
+                <Link to='projects' id="link">
+                    <div>See All</div>
+                </Link>
                 </div>
         </>
 

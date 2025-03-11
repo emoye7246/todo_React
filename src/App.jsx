@@ -100,16 +100,15 @@ export const App = () => {
       setMyTasks((prevTask) => [...prevTask, newTask])
 
       const difference = differenceInCalendarDays(date, new Date())
-      if(difference >= 8){
+      if(difference > 0){
 
-        const newTask = {id: crypto.randomUUID(), title: title, date: date}
         setUpcoming((prevTask) => [...prevTask, newTask])
         
       }
       else if(difference <= 0){
 
-        const newTask = {id: crypto.randomUUID(), title: title, date: date}
-        setDue((prevTask) => [...prevTask, newTask])
+        const newTaskDue = {id: crypto.randomUUID(), title: title, Description: Description, date: date, message: `This task was due ${differenceInCalendarDays(new Date(), date)} days ago`}
+        setDue((prevTask) => [...prevTask, newTaskDue])
 
       }
      
@@ -133,6 +132,34 @@ export const App = () => {
 
   }
 
+  const addTaskProject = (id, title, description, date) => {
+    
+    const difference = differenceInCalendarDays(date, new Date())
+    const newTask = {id: crypto.randomUUID(), title: title, description: description, date: date}
+    setMyprojects((prevProject) => prevProject.map((project) => project.id === id ? {...project, tasks: [...project.tasks, newTask]} : project))
+
+
+    if (title.trim() === "" || description.trim() === "" || date.trim() === "") return;
+      
+
+      if(difference > 0){
+
+        setUpcoming((prevTask) => [...prevTask, newTask])
+        
+      }
+      else if(difference <= 0){
+
+        setDue((prevTask) => [...prevTask, newTask])
+
+      }else{
+
+        setUpcoming((prevTask) => [...prevTask, newTask])
+
+
+      }
+    
+  }
+
 
 
   useEffect(() => {
@@ -153,7 +180,7 @@ export const App = () => {
 
         <div className='flex flex-row min-h-screen max-w-screen text-[24px] ' style={{fontFamily: 'Caveat'}}>
           
-          <TaskContent.Provider value={{title, description, descriptionInput, dateInput, titleInput, date, completed, due, upcoming, myTask, myProjects, addTask, addProject,  setAddTask, setTitleInput, setDescriptionInput, setDateInput, setTitle, setDescription, setDate, Addtask, setAddProject, AddProject, setCompleted, setMyTasks, setUpcoming, setDue}}>
+          <TaskContent.Provider value={{title, description, descriptionInput, dateInput, titleInput, date, completed, due, upcoming, myTask, myProjects, addTask, addProject,  setAddTask, setTitleInput, setDescriptionInput, setDateInput, setTitle, setDescription, setDate, Addtask, setAddProject, AddProject, setCompleted, setMyTasks, setUpcoming, setDue, addTaskProject}}>
 
           <div className='flex flex-col w-[25vw] min-h-full border-2 border-black items-start justify-evenly p-20 bg-[#EBFCFC] overflow-y-scroll'>
                 <Dashboard />
