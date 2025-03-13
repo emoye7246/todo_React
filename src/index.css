@@ -3,7 +3,7 @@
 
 @font-face {
     font-family: 'Caveat';
-    src: url('/src/assets/fonts/Caveat/static/Caveat-Regular.ttf');
+    src: url('/assets/fonts/Caveat/static/Caveat-Regular.ttf');
 }
 
 ::-webkit-scrollbar {

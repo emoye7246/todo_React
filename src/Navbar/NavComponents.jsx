@@ -82,7 +82,7 @@ export const TaskComponents = () => {
 
                     </div>
                     
-                    <div className='flex flex-row gap-x-10  items-center' onClick={() => setAddTask(true)} id="add">
+                    <div className='flex flex-row gap-x-10  items-center cursor-pointer' onClick={() => setAddTask(true)} id="add">
                       <div>Add Task</div>
                       <img src={MyIcons.add} alt='addIcon'  className='w-[8px] h-[8px]' id="add"/>
 
@@ -146,7 +146,7 @@ export const ProjectComponents = () => {
                     
                 </div>
 
-                <div className='flex flex-row gap-x-10  items-center' onClick={() => setAddProject(true)} id="add">
+                <div className='flex flex-row gap-x-10  items-center cursor-pointer' onClick={() => setAddProject(true)} id="add">
                     <div>Add Project</div>
                     <img src={MyIcons.add} alt='addIcon' className='w-[8px] h-[8px]' id="add"/>
                 </div>
