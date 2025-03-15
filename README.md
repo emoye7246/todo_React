@@ -1,12 +1,47 @@
-# React + Vite
+# Todo App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+This Todo App is a powerful task management tool built with React, featuring React Router for seamless navigation, Context API for state management, and Tailwind CSS for a modern and responsive UI. Users can organize tasks individually or within projects and receive real-time updates on upcoming or due tasks. The highlight of this project is the beautiful UI design for users so not only will you be getting tasks done but you'll have doing so in the process
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features 
 
-## Expanding the ESLint configuration
+✅ Task Management – Create, edit, and delete tasks
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+📂 Project-Based Organization – Store tasks separately or within projects
+
+📅 Real-Time Due Dates – Stay informed about upcoming and overdue tasks
+
+🔗 React Router Integration – Smooth navigation between views
+
+⚡ Context API for State Management – Efficient and scalable app state handling
+
+🎨 Tailwind CSS – Modern and responsive design
+
+## Tech Stack 
+
+Frontend: React.js, JavaScript, HTML, CSS
+
+State Management: Context API
+
+Routing: React Router
+
+Styling: Tailwind CSS
+
+## Usage
+
+Add new tasks with due dates.
+
+Organize tasks within separate projects or as standalone tasks.
+
+Navigate between different sections using React Router.
+
+Get real-time updates on upcoming and overdue tasks.
+
+## Whats to come
+
+🛒 User Authentication – Allow users to save and sync tasks across devices
+
+📊 Task Analytics – Insights into productivity trends
+
+🚀 Notifications & Reminders – Alerts for due tasks
